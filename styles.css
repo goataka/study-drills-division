@@ -1,0 +1,567 @@
+:root {
+  --ink: #25365a;
+  --muted-ink: #576a8e;
+  --paper: #fffdf8;
+  --purple: #6958d5;
+  --purple-dark: #4d3bab;
+  --aqua: #0caaa3;
+  --aqua-light: #d9f7f3;
+  --yellow: #ffc84d;
+  --orange: #f58c48;
+  --pink: #f36d9d;
+  --line: #dce4f1;
+  --success: #147a60;
+  --error: #bd4b65;
+  --shadow: 0 16px 38px rgb(62 72 116 / 14%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: "Hiragino Maru Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+  background:
+    radial-gradient(circle at 11% 13%, rgb(255 212 104 / 48%) 0 4px, transparent 5px),
+    radial-gradient(circle at 88% 21%, rgb(243 109 157 / 20%) 0 7px, transparent 8px),
+    radial-gradient(circle at 91% 80%, rgb(12 170 163 / 18%) 0 10px, transparent 11px),
+    linear-gradient(135deg, #eaf8ff 0%, #f5efff 50%, #fff6dc 100%);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.app-shell {
+  width: min(100% - 32px, 780px);
+  margin: 0 auto;
+  padding: 24px 0 32px;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--purple-dark);
+  font-size: clamp(1rem, 2.6vw, 1.15rem);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: white;
+  font-size: 1.45rem;
+  line-height: 1;
+  background: var(--purple);
+  border-radius: 11px;
+  box-shadow: 0 4px 0 var(--purple-dark);
+}
+
+.best-score {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  margin: 0;
+  color: var(--muted-ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.best-score strong {
+  color: var(--orange);
+  font-size: 1.4rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+  align-items: center;
+  padding: 43px 8px 34px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--purple);
+  font-size: 0.84rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+h1,
+h2 {
+  margin: 0;
+  color: var(--ink);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+}
+
+h1 {
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  line-height: 1.15;
+}
+
+.hero-copy {
+  margin: 13px 0 0;
+  color: var(--muted-ink);
+  font-size: clamp(0.9rem, 2.7vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.mascot {
+  position: relative;
+  display: grid;
+  width: clamp(80px, 18vw, 126px);
+  aspect-ratio: 1;
+  place-items: center;
+  color: var(--ink);
+  background: var(--yellow);
+  border: 5px solid white;
+  border-radius: 42% 58% 58% 42%;
+  box-shadow: 0 8px 0 rgb(219 157 39 / 35%);
+  transform: rotate(8deg);
+}
+
+.mascot::before,
+.mascot::after {
+  position: absolute;
+  top: 38%;
+  width: 8px;
+  height: 11px;
+  content: "";
+  background: var(--ink);
+  border-radius: 50%;
+}
+
+.mascot::before {
+  left: 32%;
+}
+
+.mascot::after {
+  right: 32%;
+}
+
+.mascot-face {
+  margin-top: 30%;
+  font-family: Arial, sans-serif;
+  font-size: 2.45rem;
+  font-weight: 900;
+  transform: rotate(-8deg);
+}
+
+.mascot-star {
+  position: absolute;
+  color: var(--pink);
+  font-size: 1.35rem;
+  text-shadow: 0 2px white;
+}
+
+.star-one {
+  top: -12%;
+  left: -20%;
+}
+
+.star-two {
+  right: -15%;
+  bottom: -10%;
+  color: var(--aqua);
+}
+
+.game-card,
+.result-card {
+  padding: clamp(20px, 5vw, 36px);
+  background: rgb(255 255 255 / 90%);
+  border: 1px solid rgb(255 255 255 / 90%);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+}
+
+.game-status,
+.level-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.question-count,
+.score-display {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.question-count {
+  color: var(--muted-ink);
+}
+
+.question-count strong {
+  color: var(--purple-dark);
+  font-size: 1.05rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.score-display {
+  color: var(--orange);
+}
+
+.score-display strong {
+  font-size: 1.55rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-track {
+  height: 13px;
+  margin: 15px 0 17px;
+  overflow: hidden;
+  background: #e8edf6;
+  border-radius: 999px;
+}
+
+.progress-fill {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--aqua), #68d8ca);
+  border-radius: inherit;
+  transition: width 350ms ease;
+}
+
+.level-row {
+  min-height: 28px;
+}
+
+.level-badge {
+  margin: 0;
+  padding: 5px 11px;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: var(--purple);
+  border-radius: 999px;
+}
+
+.encouragement {
+  margin: 0;
+  color: var(--muted-ink);
+  font-size: 0.84rem;
+  font-weight: 700;
+  text-align: right;
+}
+
+.question-panel {
+  margin-top: 18px;
+  padding: clamp(22px, 5vw, 38px);
+  text-align: center;
+  background: linear-gradient(145deg, #f5fbff, #fffaf0);
+  border: 2px solid #e5edf7;
+  border-radius: 21px;
+}
+
+.question-prompt {
+  margin: 0;
+  color: var(--muted-ink);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+.formula {
+  margin: 16px 0 27px;
+  color: var(--purple-dark);
+  font-family: "Arial Rounded MT Bold", "Hiragino Maru Gothic ProN", sans-serif;
+  font-size: clamp(2.6rem, 11vw, 4.75rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.answer-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--ink);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.answer-row {
+  display: flex;
+  width: min(100%, 470px);
+  gap: 10px;
+  margin: 0 auto;
+}
+
+#answer {
+  min-width: 0;
+  flex: 1;
+  height: 58px;
+  padding: 0 14px;
+  color: var(--purple-dark);
+  font-size: 1.55rem;
+  font-weight: 800;
+  text-align: center;
+  background: white;
+  border: 3px solid #cdd8ea;
+  border-radius: 15px;
+  outline: none;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+#answer:focus {
+  border-color: var(--aqua);
+  box-shadow: 0 0 0 4px rgb(12 170 163 / 20%);
+}
+
+#answer:disabled {
+  color: var(--muted-ink);
+  background: #edf1f8;
+}
+
+.check-button,
+.play-again-button {
+  min-height: 58px;
+  padding: 0 18px;
+  color: white;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  background: var(--orange);
+  border: 0;
+  border-bottom: 4px solid #cc6935;
+  border-radius: 15px;
+  box-shadow: 0 3px 0 rgb(204 105 53 / 18%);
+  transition: transform 120ms ease, filter 120ms ease;
+}
+
+.check-button:hover,
+.play-again-button:hover {
+  filter: brightness(1.06);
+}
+
+.check-button:active,
+.play-again-button:active {
+  border-bottom-width: 1px;
+  transform: translateY(3px);
+}
+
+.check-button:disabled {
+  cursor: wait;
+  filter: saturate(0.5);
+}
+
+.answer-help {
+  margin: 9px 0 0;
+  color: var(--muted-ink);
+  font-size: 0.77rem;
+  font-weight: 700;
+}
+
+.feedback {
+  min-height: 1.6em;
+  margin: 17px 0 0;
+  border-radius: 10px;
+  font-size: 0.96rem;
+  font-weight: 800;
+  line-height: 1.6;
+}
+
+.feedback.success {
+  padding: 7px 12px;
+  color: var(--success);
+  background: #def8eb;
+}
+
+.feedback.error {
+  padding: 7px 12px;
+  color: var(--error);
+  background: #ffeaee;
+}
+
+.result-card {
+  padding: clamp(32px, 7vw, 54px);
+  text-align: center;
+  background:
+    radial-gradient(circle at 16% 18%, rgb(255 200 77 / 25%) 0 8px, transparent 9px),
+    radial-gradient(circle at 85% 23%, rgb(243 109 157 / 20%) 0 8px, transparent 9px),
+    white;
+}
+
+.result-stars {
+  margin-bottom: 14px;
+  color: var(--yellow);
+  font-size: clamp(1.8rem, 7vw, 2.8rem);
+  letter-spacing: 0.12em;
+  text-shadow: 0 4px 0 #ebaa27;
+  animation: celebrate 900ms ease-in-out infinite alternate;
+}
+
+.result-card h2 {
+  font-size: clamp(1.8rem, 6vw, 2.5rem);
+}
+
+.result-copy {
+  margin: 12px 0 3px;
+  color: var(--muted-ink);
+  font-weight: 700;
+}
+
+.final-score {
+  margin: 12px 0 3px;
+  color: var(--orange);
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.final-score strong {
+  font-size: clamp(3rem, 12vw, 4.5rem);
+  font-variant-numeric: tabular-nums;
+}
+
+.result-best {
+  min-height: 1.5em;
+  margin: 0 0 24px;
+  color: var(--purple-dark);
+  font-size: 0.91rem;
+  font-weight: 800;
+}
+
+.play-again-button {
+  min-width: min(100%, 250px);
+  padding: 0 28px;
+  font-size: 1rem;
+}
+
+.how-to {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 23px 6px 0;
+  padding: 14px 16px;
+  color: var(--muted-ink);
+  background: rgb(255 255 255 / 59%);
+  border: 1px solid rgb(255 255 255 / 95%);
+  border-radius: 14px;
+}
+
+.how-to p {
+  margin: 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.how-to strong {
+  color: var(--purple-dark);
+}
+
+.how-to-icon {
+  color: var(--pink);
+  font-size: 1.1rem;
+}
+
+footer {
+  padding: 0 16px 26px;
+  color: var(--muted-ink);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+@keyframes celebrate {
+  from {
+    transform: rotate(-3deg) scale(0.96);
+  }
+
+  to {
+    transform: rotate(3deg) scale(1.04);
+  }
+}
+
+@media (max-width: 540px) {
+  .app-shell {
+    width: min(100% - 24px, 780px);
+    padding-top: 16px;
+  }
+
+  .hero {
+    padding: 31px 4px 25px;
+  }
+
+  .mascot {
+    width: 78px;
+  }
+
+  .mascot-face {
+    font-size: 1.8rem;
+  }
+
+  .answer-row {
+    flex-direction: column;
+  }
+
+  .check-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 370px) {
+  .best-score span:first-child {
+    display: none;
+  }
+
+  .hero {
+    gap: 8px;
+  }
+
+  .mascot {
+    width: 64px;
+  }
+
+  .game-card,
+  .result-card {
+    padding: 18px;
+    border-radius: 21px;
+  }
+
+  .question-panel {
+    padding: 22px 14px;
+  }
+
+  .level-row {
+    align-items: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

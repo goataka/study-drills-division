@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="小学生向けの、10問で楽しく取り組めるわり算ドリルです。"
+    />
+    <title>わり算クエスト | 10問ドリル</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="site-header">
+        <a class="brand" href="./" aria-label="わり算クエストの最初の画面へ">
+          <span class="brand-mark" aria-hidden="true">÷</span>
+          <span>わり算クエスト</span>
+        </a>
+        <p class="best-score" aria-label="これまでのベストスコア">
+          <span>ベスト</span>
+          <strong id="best-score">0</strong>
+          <span>点</span>
+        </p>
+      </header>
+
+      <section class="hero" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">10問クリアで ほしをゲット！</p>
+          <h1 id="page-title">わり算クエスト</h1>
+          <p class="hero-copy">
+            かんたんな問題から、少しずつレベルアップ。<br />
+            10問のぼうけんに出発しよう！
+          </p>
+        </div>
+        <div class="mascot" aria-hidden="true">
+          <span class="mascot-star star-one">★</span>
+          <span class="mascot-star star-two">✦</span>
+          <span class="mascot-face">⌣</span>
+        </div>
+      </section>
+
+      <section class="game-card" id="game-screen" aria-labelledby="question-heading">
+        <div class="game-status">
+          <div class="question-count">
+            <span>もんだい</span>
+            <strong><span id="question-number">1</span> / 10</strong>
+          </div>
+          <div class="score-display" aria-live="polite">
+            <span>スコア</span>
+            <strong id="score">0</strong>
+            <span>点</span>
+          </div>
+        </div>
+
+        <div
+          class="progress-track"
+          role="progressbar"
+          aria-label="問題の進み具合"
+          aria-valuemin="0"
+          aria-valuemax="10"
+          aria-valuenow="0"
+        >
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+
+        <div class="level-row">
+          <p class="level-badge" id="level-label">レベル 1</p>
+          <p class="encouragement" id="encouragement">ゆっくり かんがえよう！</p>
+        </div>
+
+        <article class="question-panel">
+          <p class="question-prompt" id="question-heading">こたえはいくつ？</p>
+          <p class="formula" id="formula" aria-live="polite">12 ÷ 3 = ?</p>
+
+          <form id="answer-form" novalidate>
+            <label class="answer-label" for="answer">こたえ</label>
+            <div class="answer-row">
+              <input
+                id="answer"
+                name="answer"
+                type="text"
+                inputmode="numeric"
+                pattern="[0-9]*"
+                autocomplete="off"
+                maxlength="3"
+                aria-describedby="answer-help feedback"
+              />
+              <button class="check-button" id="check-button" type="submit">
+                こたえをチェック
+              </button>
+            </div>
+            <p class="answer-help" id="answer-help">数字を入れてね</p>
+          </form>
+
+          <p class="feedback" id="feedback" role="status" aria-live="assertive"></p>
+        </article>
+      </section>
+
+      <section class="result-card" id="result-screen" hidden aria-labelledby="result-title">
+        <div class="result-stars" aria-hidden="true">★ ★ ★</div>
+        <p class="eyebrow">クエスト かんりょう！</p>
+        <h2 id="result-title">よくできました！</h2>
+        <p class="result-copy" id="result-message"></p>
+        <p class="final-score"><strong id="final-score">0</strong> 点</p>
+        <p class="result-best" id="result-best"></p>
+        <button class="play-again-button" id="play-again-button" type="button">
+          もう一度あそぶ
+        </button>
+      </section>
+
+      <aside class="how-to" aria-label="あそびかた">
+        <span class="how-to-icon" aria-hidden="true">✦</span>
+        <p><strong>あそびかた：</strong>正解するとスコアアップ！ まちがえても何度でも挑戦できるよ。</p>
+      </aside>
+    </main>
+
+    <footer>スコアはこの端末だけに保存されます。</footer>
+  </body>
+</html>
